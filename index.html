@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculadora de Mediana</h1>
+    <input type="text" id="numbers" placeholder="Ingresa los números separados por comas">
+    <button onclick="calculateMedian()">Calcular Mediana</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateMedian() {
+            let input = document.getElementById('numbers').value;
+            let numbers = input.split(',').map(Number);
+            numbers.sort((a, b) => a - b);
+
+            let median;
+            let n = numbers.length;
+            if (n % 2 === 0) {
+                median = (numbers[n/2 - 1] + numbers[n/2]) / 2;
+            } else {
+                median = numbers[Math.floor(n/2)];
+            }
+            document.getElementById('result').textContent = 'La mediana es: ' + median;
+        }
+    </script>
+</body>
+</html>
